@@ -1,0 +1,14 @@
+1语义化标签：
+
+遇到不确定的情况，不要乱用标签，用div和span就好
+2闭包是在函数a外还能访问函数a变量的函数b
+3事实上，js中的'类'仅仅是运行时'对象的一个私有属性',而js是无法定义'类型'的
+私有属性：无法访问的属性，具体表现：Object.prototype.toString.call(x)
+4对象name(){}<=>name:function(){}
+var o={
+  myfunc(){}
+ }
+ var o2={
+  myfunc:function myfunc(){
+}
+5
