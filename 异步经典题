@@ -1,0 +1,38 @@
+console.log('sync1')-----------------1次打印                
+
+setTimeout(function(){
+	console.log('setTimeout1')
+},0)//+1----------------------------setTimeout
+
+var promise=new Promise(function(resolve,reject){
+	setTimeout(function(){
+		console.log('setTimeoutPromise')
+	},0)//+2-------------------------setTimeout
+	console.log('promise')-----------2次打印
+	resolve()
+})
+
+promise.then(()=>{-------------------------resolve
+	console.log('pro_then')
+	setTimeout(()=>{
+		console.log('pro_timeout')
+	},0)
+})
+
+setTimeout(function(){
+	console.log('last_setTimeout')
+},0)//+3---------------------------------setTimout
+
+console.log('sync_2')---------------------3次打印
+
+打印顺序
+sync1
+promise
+sync_2
+
+pro_then//先执行then
+setTimeout1
+setTimeutPromsie
+last_setTimeout
+
+pro_timeout
