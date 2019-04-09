@@ -11,4 +11,49 @@ var o={
  var o2={
   myfunc:function myfunc(){
 }
-5
+5现在浏览器多数实现'从右往左'匹配,那么无法保证选择器在DOM树构建到当前节点时，已经可以准确判断当前节点是否已经选中
+5.0浏览器如何工作的：url变成一个屏幕上显示的网页
+1)浏览器首先使用HTTP协议/HTTPS协议，向服务端请求页面
+2)把请求回来的html代码经过解析，构建成DOM树---DOM树构建
+3)计算DOM树上的CSS属性                   ---CSS计算
+4)根据CSS属性对元素逐个进行渲染，得到内存中的位图--渲染
+5)可选：对位图进行合成，极大增加后续绘制的速度  ---合成
+6)绘制到界面                                 ---绘制
+                  request line--version--固定字符串
+                                method *
+                                path--由服务端来定义
+                                
+          Request head
+                  body
+        
+HTTP格式
+                  response line---version
+                                  status code*
+                                  status text
+          Reponse head
+                  
+                  body
+HTTP Method(方法)
+GET--浏览器通过'地址栏'访问页面
+POST--表单提交
+HEAD--与GET类似，只返回请求头，多数由js发起
+PUT---添加资源
+DELETE--删除资源
+CONNECT多用于HTTPS,WebSocket
+后两者多用于调试
+OPTIONS
+TRACE
+HTTP Status code(状态码，状态文本)
+1xx:临时回应，表示客户端想继续---被浏览器'HTTP库'直接处理了，不会让上层知道
+2xx:请求成功
+  200
+3xx:请求的目标有变化，希望客户端进一步处理
+  301&302：永久性和临时性跳转;301更接近于以中报错，提示客户端下次别来了
+  304：客户端缓存没有更新--客户端本地已有缓存版本，并且在Request中告诉服务端,当服务端通过时间/tag,发现没有更新的时候，会返回一个不含body的304状态
+4xx:客户端请求错误
+  403：无权限
+  404：请求的页面不存在
+  418：愚人节玩笑
+5xx:服务端请求错误
+  500：服务端错误
+  503：服务端暂时性错误，可以一会再试
