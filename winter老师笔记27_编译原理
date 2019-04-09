@@ -1,0 +1,15 @@
+定义四则运算：产生四则运算的'词法'定义和'语法'定义
+'词法'分析：把输入的'字符串'变成'token'（忽略小数\括号）
+'语法'分析：把'token'变成'抽象成语法树AST'---BNF范式,核心思想：几种结构的组合产生一个新结构，'语法定义'，又叫'语法产生式'
+解释执行：后序遍历AST,执行得出结果
+1语法定义：???
+<Expression>::=<AdditiveExpression><EOF>
+<AdditiveExpression>::=<MultiplicationExpression>
+                       |<AdditiveExpresion><+><MultipicationEpression>
+                       |<AdditiveExpresion><+><MultipicationEpression>
+<MultiplicationExpression>::=<Number>
+                             |<MultiplicationExpression><*><Number>
+                             |<MultiplicationExpression></><Number>
+2词法分析：状态机--字符流->token流
+两种方案：状态机；正则表达式
+3语法分析：ll
