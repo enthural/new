@@ -57,3 +57,17 @@ HTTP Status code(状态码，状态文本)
 5xx:服务端请求错误
   500：服务端错误
   503：服务端暂时性错误，可以一会再试
+Request header:知道常见header意思
+Request body:提交表单场景
+application/json
+application/x-www-form-urlencoded---使用html的<form>标签提交产生的html请求
+mulipart/form-data---当有文件上传时
+text/html
+https
+两个作用：
+1确定请求的目标'服务端'身份
+2保证传输的数据不会被网络中间节点窃听/篡改
+HTTPS------TSL加密信道------服务端
+            构建于TCP协议至上，对传输内容加密
+HTTP 2 支持服务端推送(在客户端发送第一个请求到服务端时，提前把一部分内容退给客户端，加入缓存当中，可避免客户端请求顺序带来的并行度不高，导致的性能问题)
+支持TCP连接复用(同一个tcp连接来传输多个http请求，避免tcp连接建立3次握手，和初建TCP连接时传输窗口小的问题)          
